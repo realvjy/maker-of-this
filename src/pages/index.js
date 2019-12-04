@@ -1,9 +1,9 @@
 import React from "react"
 import { Link, graphql } from "gatsby"
 
-import Bio from "../components/bio"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
+import Hero from "../components/hero"
 
 class BlogIndex extends React.Component {
   render() {
@@ -13,30 +13,123 @@ class BlogIndex extends React.Component {
 
     return (
       <Layout location={this.props.location} title={siteTitle}>
-        <SEO title="All posts" />
-        <Bio />
-        {posts.map(({ node }) => {
-          const title = node.frontmatter.title || node.fields.slug
-          return (
-            <article key={node.fields.slug}>
-              <header>
-                <h3>
-                  <Link style={{ boxShadow: `none` }} to={node.fields.slug}>
-                    {title}
-                  </Link>
-                </h3>
-                <small>{node.frontmatter.date}</small>
-              </header>
-              <section>
-                <p
-                  dangerouslySetInnerHTML={{
-                    __html: node.frontmatter.description || node.excerpt,
-                  }}
-                />
-              </section>
-            </article>
-          )
-        })}
+        <SEO title="illlustrations - open source illustrations kit" />
+
+        <>
+        <div className="announce-wrapper ph">
+
+        </div>
+        <Hero />
+        <section className="mot_section">
+          <div className="container">
+            <div className="content-box-wrap">
+              <div className="sidebar">
+                <div className="menu-wrap">
+                  <h4>Filter By</h4>
+                  <ul className="menu-list">
+                    <li className="menu">
+                      <a href="#">Featured</a>
+                    </li>
+                    <li className="menu active">
+                      <a href="#">Social Network <span>12</span></a>
+                    </li>
+                    <li className="menu">
+                      <a href="#">Productivity <span>12</span></a>
+                    </li>
+                    <li className="menu">
+                      <a href="#">Featured</a>
+                    </li>
+                  </ul>
+                  <a href="" className="submit">Submit</a>
+                </div>
+              </div>
+              <div className="products-list-wrap">
+                <div className="product-list">
+
+                  <div className="product">
+                    <div className="p-img">
+                      <img src="/placeholder.png" />
+                    </div>
+                    <div className="p-info">
+                      <div className="p-meta">
+                        <h1>Dribbble</h1>
+                        <ul>
+                          <li>Only plave you ever want to go </li>
+                          <li>Evan Sharp</li>
+                        </ul>
+                        <h4>pinterest.com</h4>
+                      </div>
+                      <div className="p-lnk">
+                        <a href="#"><img src="/twitter.svg"/></a>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="product">
+                    <div className="p-img">
+                      <img src="/placeholder.png" />
+                    </div>
+                    <div className="p-info">
+                      <div className="p-meta">
+                        <h1>Behance</h1>
+                        <ul>
+                          <li>Show your work here </li>
+                          <li>Evan Sharp</li>
+                        </ul>
+                        <h4>pinterest.com</h4>
+                      </div>
+                      <div className="p-lnk">
+                        <a href="#"><img src="/twitter.svg"/></a>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="product">
+                    <div className="p-img">
+                      <img src="/placeholder.png" />
+                    </div>
+                    <div className="p-info">
+                      <div className="p-meta">
+                        <h1>Pinterest</h1>
+                        <ul>
+                          <li>Idea board everything </li>
+                          <li>Evan Sharp</li>
+                        </ul>
+                        <h4>pinterest.com</h4>
+                      </div>
+                      <div className="p-lnk">
+                        <a href="#"><img src="/twitter.svg"/></a>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="product">
+                    <div className="p-img">
+                      <img src="/placeholder.png" />
+                    </div>
+                    <div className="p-info">
+                      <div className="p-meta">
+                        <h1>Pinterest</h1>
+                        <ul>
+                          <li>Idea board everything</li>
+                          <li>Evan Sharp</li>
+                        </ul>
+                        <h4>pinterest.com</h4>
+                      </div>
+                      <div className="p-lnk">
+                        <a href="#"><img src="/twitter.svg"/></a>
+                      </div>
+                    </div>
+                  </div>
+
+
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        </>
+
       </Layout>
     )
   }
