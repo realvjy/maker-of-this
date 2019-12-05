@@ -13,22 +13,36 @@ class Layout extends React.Component {
 
       </div>
       <section className="header_section">
-        
+
       </section>
       </>
     )
     return (
-      <div className="illlustrations_main">
+      <div className="mot_main">
         <header>{header}</header>
         <main className="up_i">{children}</main>
-        <footer className="container footer">
-          <div className="dev-credit">
-          <h3>Maker of this <a href="https://vijayverma.co">vijay verma</a> </h3>
-          <ul className="scl-lnk">
-            <li><a href="https://dribbble.com/realvjy" target="__blank"><img src="/dribbble.svg"/></a></li>
-            <li><a href="https://twitter.com/realvjy" target="__blank"><img src="/twitter.svg"/></a></li>
-            <li><a href="https://instagram.com/realvjy" target="__blank"><img src="/insta.svg"/></a></li>
-          </ul>
+        <footer>
+          <div className="container">
+            <div className="footer">
+              <div className="about">
+                <a href="#" className="f-brand">
+                  <img src="/logo-black.svg" />
+                </a>
+                <ul className="f-menu">
+                  <li><a href="#">About</a>•</li>
+                  <li><a href="#">Correct</a>•</li>
+                  <li><a href="#" className="bmc">Buy me a coffee</a></li>
+                </ul>
+              </div>
+              <div className="credit">
+                <div className="author">
+                  <h4>Maker <a href="#">vijay verma.</a></h4>
+                </div>
+                <div className="company">
+                  <h4>© 2019 <a href="#">uigate</a></h4>
+                </div>
+              </div>
+            </div>
           </div>
         </footer>
       </div>

@@ -5,12 +5,14 @@ import Layout from "../components/layout"
 import SEO from "../components/seo"
 import Hero from "../components/hero"
 
+
 class BlogIndex extends React.Component {
   render() {
     const { data } = this.props
     const siteTitle = data.site.siteMetadata.title
     const posts = data.allMarkdownRemark.edges
 
+    const listJson = data.allTestdataJson.edges
     return (
       <Layout location={this.props.location} title={siteTitle}>
         <SEO title="illlustrations - open source illustrations kit" />
@@ -28,44 +30,25 @@ class BlogIndex extends React.Component {
                   <h4>Filter By</h4>
                   <ul className="menu-list">
                     <li className="menu">
-                      <a href="#">Featured</a>
+                      <a href="#">Featured <span className="new">NEW</span></a>
                     </li>
                     <li className="menu active">
                       <a href="#">Social Network <span>12</span></a>
                     </li>
                     <li className="menu">
-                      <a href="#">Productivity <span>12</span></a>
+                      <a href="#">Productivity <span>129</span></a>
                     </li>
                     <li className="menu">
                       <a href="#">Featured</a>
                     </li>
                   </ul>
-                  <a href="" className="submit">Submit</a>
+                  <a href="" className="submit">Submit new<img src="/plus.svg"/></a>
                 </div>
               </div>
               <div className="products-list-wrap">
                 <div className="product-list">
 
-                  <div className="product">
-                    <div className="p-img">
-                      <img src="/placeholder.png" />
-                    </div>
-                    <div className="p-info">
-                      <div className="p-meta">
-                        <h1>Dribbble</h1>
-                        <ul>
-                          <li>Only plave you ever want to go </li>
-                          <li>Evan Sharp</li>
-                        </ul>
-                        <h4>pinterest.com</h4>
-                      </div>
-                      <div className="p-lnk">
-                        <a href="#"><img src="/twitter.svg"/></a>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div className="product">
+                  <a href="#" className="product">
                     <div className="p-img">
                       <img src="/placeholder.png" />
                     </div>
@@ -79,54 +62,24 @@ class BlogIndex extends React.Component {
                         <h4>pinterest.com</h4>
                       </div>
                       <div className="p-lnk">
-                        <a href="#"><img src="/twitter.svg"/></a>
+                        <a href="#"><img src="/open.svg"/></a>
                       </div>
                     </div>
-                  </div>
+                  </a>
 
-                  <div className="product">
-                    <div className="p-img">
-                      <img src="/placeholder.png" />
-                    </div>
-                    <div className="p-info">
-                      <div className="p-meta">
-                        <h1>Pinterest</h1>
-                        <ul>
-                          <li>Idea board everything </li>
-                          <li>Evan Sharp</li>
-                        </ul>
-                        <h4>pinterest.com</h4>
-                      </div>
-                      <div className="p-lnk">
-                        <a href="#"><img src="/twitter.svg"/></a>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div className="product">
-                    <div className="p-img">
-                      <img src="/placeholder.png" />
-                    </div>
-                    <div className="p-info">
-                      <div className="p-meta">
-                        <h1>Pinterest</h1>
-                        <ul>
-                          <li>Idea board everything</li>
-                          <li>Evan Sharp</li>
-                        </ul>
-                        <h4>pinterest.com</h4>
-                      </div>
-                      <div className="p-lnk">
-                        <a href="#"><img src="/twitter.svg"/></a>
-                      </div>
-                    </div>
-                  </div>
 
 
                 </div>
               </div>
             </div>
           </div>
+          <ul>
+            {listJson.map(({ node }) => {
+              return(
+                node.label
+              )
+            })}
+          </ul>
         </section>
         </>
 
@@ -156,6 +109,14 @@ export const pageQuery = graphql`
             title
             description
           }
+        }
+      }
+    }
+    allTestdataJson {
+      edges {
+        node {
+          label
+          link
         }
       }
     }
