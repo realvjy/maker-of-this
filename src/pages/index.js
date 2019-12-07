@@ -1,5 +1,6 @@
 import React from "react"
 import { Link, graphql } from "gatsby"
+import kebabCase from "lodash.kebabcase"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
@@ -12,7 +13,6 @@ class BlogIndex extends React.Component {
     const siteTitle = data.site.siteMetadata.title
     const posts = data.allMarkdownRemark.edges
 
-    const listJson = data.allTestdataJson.edges
     return (
       <Layout location={this.props.location} title={siteTitle}>
         <SEO title="illlustrations - open source illustrations kit" />
@@ -45,41 +45,45 @@ class BlogIndex extends React.Component {
                   <a href="" className="submit">Submit new<img src="/plus.svg"/></a>
                 </div>
               </div>
+
               <div className="products-list-wrap">
                 <div className="product-list">
 
-                  <a href="#" className="product">
-                    <div className="p-img">
-                      <img src="/placeholder.png" />
-                    </div>
-                    <div className="p-info">
-                      <div className="p-meta">
-                        <h1>Behance</h1>
-                        <ul>
-                          <li>Show your work here </li>
-                          <li>Evan Sharp</li>
-                        </ul>
-                        <h4>pinterest.com</h4>
-                      </div>
-                      <div className="p-lnk">
-                        <a href="#"><img src="/open.svg"/></a>
-                      </div>
-                    </div>
-                  </a>
+                  {posts.map(({ node }) => {
+                    const title = node.frontmatter.title || node.fields.slug
+                    return (
 
+                      <a href={node.frontmatter.website} className="product" key={node.fields.slug}>
+                        <div className="p-img">
+                          <img src={node.frontmatter.image.childImageSharp.fluid.src} />
+                        </div>
+                        <div className="p-info">
+                          <div className="p-meta">
+                            <h1>{title}</h1>
+                            <ul>
+                              {node.frontmatter.makers.map(maker => (
+                                <li key={maker}>
+                                  {maker}
+                                </li>
+                              ))}
+                            </ul>
+                            <h4>{node.frontmatter.year} • {node.frontmatter.domain}</h4>
 
-
+                          </div>
+                          <div className="p-lnk">
+                            <a href={node.frontmatter.website} ><img src="/open.svg"/></a>
+                          </div>
+                        </div>
+                      </a>
+                    )
+                  })}
+                </div>
                 </div>
               </div>
             </div>
+          <div>
+
           </div>
-          <ul>
-            {listJson.map(({ node }) => {
-              return(
-                node.label
-              )
-            })}
-          </ul>
         </section>
         </>
 
@@ -97,10 +101,13 @@ export const pageQuery = graphql`
         title
       }
     }
-    allMarkdownRemark(sort: { fields: [frontmatter___date], order: DESC }) {
+    allMarkdownRemark(
+      sort: { fields: [frontmatter___date], order: DESC }
+    ) {
       edges {
         node {
           excerpt
+          html
           fields {
             slug
           }
@@ -108,15 +115,20 @@ export const pageQuery = graphql`
             date(formatString: "MMMM DD, YYYY")
             title
             description
+            year
+            category
+            tags
+            makers
+            website
+            domain
+            image{
+              childImageSharp {
+                fluid {
+                  src
+                }
+              }
+            }
           }
-        }
-      }
-    }
-    allTestdataJson {
-      edges {
-        node {
-          label
-          link
         }
       }
     }

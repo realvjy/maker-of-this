@@ -1,13 +1,13 @@
 @import url('https://fonts.googleapis.com/css?family=Poppins:300,400,400i,500,600,700,800&display=swap');
 
 // Variables
-$black: #2C2C2E;
+$black: #2B304A;
 $white: #ffffff;
 $green: #24D3B2;
 $yellow: #F7C945;
 $grey: #EBEDF0;
 $blue: #28388F;
-$sky: #48B2FF;
+$sky: #64BEFF;
 $pink: #FF5881;
 $bg: #F7F9FE;
 $light-grey: #81868E;
@@ -90,6 +90,8 @@ html,  body{
   .brand{
     .logo{
       margin-bottom: 10px;
+      margin-top: 18px;
+      width: 240px;
     }
   }
   h1{
@@ -108,6 +110,10 @@ html,  body{
     line-height: 140%;
     margin-top: 8px;
     margin-bottom: 20px;
+    @media (max-width: $mobile-landscape){
+        font-size: 16px;
+        padding: 0 24px;
+    }
   }
 }
 
@@ -115,16 +121,20 @@ html,  body{
   display: flex;
   justify-content: center;
   flex-direction: row;
+  margin-bottom: 12px;
+  @media (max-width: $mobile-landscape){
+      flex-direction: column;
+  }
   li{
-    padding: 12px;
+    margin: 12px;
     a{
       font-size: 16px;
       color: rgba(255,255,255,0.8);
       padding: 12px 20px;
       text-decoration: none;
-      border: .5px solid rgba(255,255,255,0.1);
+      border: .5px solid rgba(255,255,255,0.2);
       border-radius: 18px;
-
+      display: inline-block;
       img{
         height: 18px;
         vertical-align: middle;
@@ -146,9 +156,13 @@ html,  body{
   .content-box-wrap{
     width: 100%;
     display: flex;
+    @media (max-width: $mobile-landscape){
+        flex-direction: column;
+    }
     // Sidebar
     .sidebar{
       flex: 24;
+
       .menu-wrap{
         padding: 24px;
         h4{
@@ -217,6 +231,9 @@ html,  body{
           img{
             height: 24px;
             margin-left: 10px;
+            @media (max-width: $mobile-landscape){
+                height: 20px;
+            }
           }
           &:hover{
             opacity: 0.9;
@@ -234,15 +251,15 @@ html,  body{
         .product{
           background: $white;
           padding: 24px;
-          border: 1px solid $grey;
           border-radius: 22px;
-          margin-top: 12px;
-          margin-bottom: 12px;
+          margin-top: 16px;
+          margin-bottom: 16px;
+          border: .5 solid $grey;
           display: flex;
           flex-direction: row;
-          -webkit-box-shadow: 0 2px 14px rgba(0,0,0,.01);
-          -moz-box-shadow: 0 2px 14px rgba(0,0,0,.01);
-          box-shadow: 0 2px 14px rgba(0,0,0,.01);
+          -webkit-box-shadow: 0 2px 4px rgba(0,0,0,.03);
+          -moz-box-shadow: 0 2px 4px rgba(0,0,0,.03);
+          box-shadow: 0 2px 4px rgba(0,0,0,.03);
 
           -webkit-transition: all 250ms cubic-bezier(0.02, 0.01, 0.47, 1);
           -moz-transition: all 250ms cubic-bezier(0.02, 0.01, 0.47, 1);
@@ -250,11 +267,18 @@ html,  body{
           -o-transition: all 250ms cubic-bezier(0.02, 0.01, 0.47, 1);
           transition: all 250ms cubic-bezier(0.02, 0.01, 0.47, 1);
           text-decoration: none;
+          @media (max-width: $mobile-landscape){
+              padding: 20px;
+          }
           .p-img{
             line-height: 0;
             img{
               max-height: 100px;
-              border-radius: 8px;
+              border-radius: 50%;
+              border: 1px solid rgba(235,236,240,0.7);
+              @media (max-width: $mobile-landscape){
+                  max-height: 54px;
+              }
             }
           }
           .p-info{
@@ -265,6 +289,10 @@ html,  body{
             align-items: center;
             flex: 30;
             vertical-align: middle;
+            @media (max-width: $mobile-landscape){
+              align-items: flex-start;
+              margin-left: 18px;
+            }
             .p-meta{
               display: flex;
               flex-direction: column;
@@ -280,22 +308,38 @@ html,  body{
               -ms-transition: all 250ms cubic-bezier(0.02, 0.01, 0.47, 1);
               -o-transition: all 250ms cubic-bezier(0.02, 0.01, 0.47, 1);
               transition: all 250ms cubic-bezier(0.02, 0.01, 0.47, 1);
+              margin-bottom: 2px;
+              @media (max-width: $mobile-landscape){
+                  font-size: 22px;
+              }
             }
             ul{
               display: flex;
               flex-direction: row;
               margin-bottom: 5px;
+              flex-wrap: wrap;
+              @media (max-width: $mobile-landscape){
+                  flex-direction: column;
+              }
               li{
                 font-size: 20px;
-                font-weight: 500;
-                line-height: 130%;
+                font-weight: 600;
+                line-height: 140%;
                 margin-right: 8px;
+                @media (max-width: $mobile-landscape){
+                    font-size: 16px;
+                    line-height: 150%;
+                }
               }
             }
             h4{
               font-size: 16px;
-              line-height: 140%;
+              line-height: 120%;
               color: $light-grey;
+              @media (max-width: $mobile-landscape){
+                  font-size: 14px;
+                  margin-top: 2px;
+              }
             }
           }
           .p-lnk{
@@ -345,10 +389,16 @@ html,  body{
   align-items: center;
   margin-top: 30px;
   font-size: 14px;
+  @media (max-width: $mobile-landscape){
+      flex-direction: column;
+  }
   .about{
     display: flex;
     flex-direction: row;
     align-items: center;
+    @media (max-width: $mobile-landscape){
+        flex-direction: column;
+    }
     a{
       text-decoration: none;
       font-weight: 500;
@@ -366,11 +416,18 @@ html,  body{
         height: 18px;
         margin-right: 12px;
         opacity: 1;
+        @media (max-width: $mobile-landscape){
+            margin-right: 0;
+        }
       }
     }
     .f-menu{
       display: flex;
       flex-direction: row;
+      @media (max-width: $mobile-landscape){
+          margin-top: 18px;
+          margin-bottom: 36px;
+      }
       .bmc{
         color: $pink;
         opacity: 1;
@@ -380,6 +437,7 @@ html,  body{
   .credit{
     display: flex;
     flex-direction: row;
+
     a{
       text-decoration: none;
       font-weight: 600;
@@ -399,6 +457,8 @@ html,  body{
     }
     .company{
       margin-left: 20px;
+      @media (max-width: $mobile-landscape){
+      }
     }
   }
 }

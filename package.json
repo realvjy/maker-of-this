@@ -27,6 +27,7 @@
     "gatsby-transformer-json": "^2.2.20",
     "gatsby-transformer-remark": "^2.6.38",
     "gatsby-transformer-sharp": "^2.3.6",
+    "lodash.kebabcase": "^4.1.1",
     "node-sass": "^4.13.0",
     "prismjs": "^1.17.1",
     "react": "^16.12.0",
@@ -50,6 +51,7 @@
   "scripts": {
     "build": "gatsby build",
     "develop": "gatsby develop",
+    "dev-m": "gatsby develop -H 0.0.0.0 -p 8000",
     "format": "prettier --write \"**/*.{js,jsx,json,md}\"",
     "deploy": "gatsby build && gh-pages -d public -b master",
     "start": "npm run develop",
