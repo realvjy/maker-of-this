@@ -25,7 +25,7 @@ class Layout extends React.Component {
           <div className="container">
             <div className="footer">
               <div className="about">
-                <a href="#" className="f-brand">
+                <a href="/" className="f-brand">
                   <img src="/logo-black.svg" />
                 </a>
                 <ul className="f-menu">
@@ -36,10 +36,10 @@ class Layout extends React.Component {
               </div>
               <div className="credit">
                 <div className="author">
-                  <h4>Maker <a href="#">vijay verma.</a></h4>
+                  <h4>Maker <a href="https://vijayverma.co">vijay verma.</a></h4>
                 </div>
                 <div className="company">
-                  <h4>© 2019 <a href="#">uigate</a></h4>
+                  <h4>© 2019 <a href="https://dribbble.com/uigate" target="__blank">uigate</a></h4>
                 </div>
               </div>
             </div>
