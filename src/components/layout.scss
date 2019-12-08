@@ -346,7 +346,7 @@ html,  body{
           }
           .p-lnk{
             line-height: 0;
-            a{
+            span,a{
               display: block;
               padding: 12px;
               border: 1px solid $grey;

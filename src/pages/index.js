@@ -53,7 +53,7 @@ class BlogIndex extends React.Component {
                     const title = node.frontmatter.title || node.fields.slug
                     return (
 
-                      <a href={node.frontmatter.website} className="product" key={node.fields.slug} targer="__blank">
+                      <a href={node.frontmatter.website} className="product" key={node.fields.slug} target="_blank">
                         <div className="p-img">
                           <img src={node.frontmatter.image.childImageSharp.fluid.src} />
                         </div>
@@ -71,7 +71,7 @@ class BlogIndex extends React.Component {
 
                           </div>
                           <div className="p-lnk">
-                            <img src="/open.svg"/>
+                            <span><img src="/open.svg"/></span>
                           </div>
                         </div>
                       </a>
