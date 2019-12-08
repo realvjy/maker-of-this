@@ -31,7 +31,7 @@ class Layout extends React.Component {
                 <ul className="f-menu">
                   <li><a href="#">About</a>•</li>
                   <li><a href="#">Correct</a>•</li>
-                  <li><a href="#" className="bmc">Buy me a coffee</a></li>
+                  <li><a href="https://www.buymeacoffee.com/realvjy" className="bmc">Buy me a coffee</a></li>
                 </ul>
               </div>
               <div className="credit">

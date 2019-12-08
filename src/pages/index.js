@@ -29,10 +29,10 @@ class BlogIndex extends React.Component {
                 <div className="menu-wrap">
                   <h4>Filter By</h4>
                   <ul className="menu-list">
-                    <li className="menu">
+                    <li className="menu  active">
                       <a href="#">Featured <span className="new">NEW</span></a>
                     </li>
-                    <li className="menu active">
+                    <li className="menu">
                       <a href="#">Social Network <span>12</span></a>
                     </li>
                     <li className="menu">
@@ -53,7 +53,7 @@ class BlogIndex extends React.Component {
                     const title = node.frontmatter.title || node.fields.slug
                     return (
 
-                      <a href={node.frontmatter.website} className="product" key={node.fields.slug} target="_blank">
+                      <a href={node.frontmatter.website+`/?ref=makerofthis`} className="product" key={node.fields.slug} target="_blank">
                         <div className="p-img">
                           <img src={node.frontmatter.image.childImageSharp.fluid.src} />
                         </div>

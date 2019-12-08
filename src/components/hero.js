@@ -13,13 +13,13 @@ const Hero = () => {
             <img src="/logo.svg" className="logo" />
           </Link>
           <h1>Maker of this!</h1>
-          <p>If you are curios to know who actually make your faviroute products check here</p>
+          <p>If you are curios to know who is the maker of your faviroute products check here</p>
           <ul className="links links-share">
             <li>
               <a className="btn-tw" href="https://twitter.com/intent/tweet?text=Design%20awesome%20landing%20page,%20mockup%20and%20presentations%20with%20this%20open-source%20illlustrations%20library.%20%20https://illlustrations.co%20by%20@realvjy"><img src="/twitter.svg"/> Share on twitter</a>
             </li>
             <li>
-              <a className="btn-tw" href="https://twitter.com/intent/tweet?text=Design%20awesome%20landing%20page,%20mockup%20and%20presentations%20with%20this%20open-source%20illlustrations%20library.%20%20https://illlustrations.co%20by%20@realvjy"><img src="/coffee.svg"/> Buy me a coffee</a>
+              <a className="btn-tw" href="https://www.buymeacoffee.com/realvjy"><img src="/coffee.svg"/> Buy me a coffee</a>
             </li>
           </ul>
         </nav>
