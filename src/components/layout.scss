@@ -336,9 +336,11 @@ html,  body{
               font-size: 16px;
               line-height: 120%;
               color: $light-grey;
+              margin-bottom: 6px;
               @media (max-width: $mobile-landscape){
                   font-size: 14px;
                   margin-top: 2px;
+                  margin-bottom: 2px;
               }
             }
           }
