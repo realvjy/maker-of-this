@@ -83,6 +83,9 @@ html,  body{
   justify-content: center;
   flex-direction: column;
   color: $white;
+  &.soon{
+    height: 100vh;
+  }
   .nav{
     padding: 24px;
     width: 100%;
@@ -384,6 +387,7 @@ html,  body{
   }
 }
 
+// change background later
 .footer{
   display: flex;
   flex-direction: row;
