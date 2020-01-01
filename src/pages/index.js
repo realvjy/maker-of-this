@@ -15,7 +15,7 @@ class BlogIndex extends React.Component {
 
     return (
       <Layout location={this.props.location} title={siteTitle}>
-        <SEO title="illlustrations - open source illustrations kit" />
+        <SEO title="Know makers of your favrouite products" />
 
         <>
         <div className="announce-wrapper ph">

@@ -2,7 +2,7 @@ module.exports = {
   siteMetadata: {
     title: `Maker of this!`,
     author: `vijay verma`,
-    description: `A starter blog demonstrating what Gatsby can do.`,
+    description: `know the makers`,
     siteUrl: `https://vijayverma.co`,
     social: {
       twitter: `realvjy`,
