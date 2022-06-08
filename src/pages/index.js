@@ -109,7 +109,6 @@ export const pageQuery = graphql`
       siteMetadata {
         title
       }
-
     }
     allMarkdownRemark(
       sort: { fields: [frontmatter___date], order: DESC }

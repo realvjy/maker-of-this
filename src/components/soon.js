@@ -1,5 +1,9 @@
 import React from "react"
 import { useStaticQuery, graphql, Link } from "gatsby"
+<<<<<<< HEAD
+=======
+import Image from "gatsby-image"
+>>>>>>> ce3320186a9f1a3633d8aeed44952c1091c06717
 
 
 
