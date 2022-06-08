@@ -5,17 +5,14 @@ import kebabCase from "lodash.kebabcase"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import Hero from "../components/hero"
-import Sidebar from "../components/sidebar"
 
 
-class BlogIndex extends React.Component {
+class Release extends React.Component {
   render() {
     const { data } = this.props
     const siteTitle = data.site.siteMetadata.title
     const posts = data.allMarkdownRemark.edges
-    const { location } = this.props
 
-    console.log(posts)
     return (
       <Layout location={this.props.location} title={siteTitle}>
         <SEO title="illlustrations - open source illustrations kit" />
@@ -28,7 +25,26 @@ class BlogIndex extends React.Component {
         <section className="mot_section">
           <div className="container">
             <div className="content-box-wrap">
-              <Sidebar status = {location.pathname}/>
+              <div className="sidebar">
+                <div className="menu-wrap">
+                  <h4>Filter By</h4>
+                  <ul className="menu-list">
+                    <li className="menu  active">
+                      <a href="#">Featured <span className="new">NEW</span></a>
+                    </li>
+                    <li className="menu">
+                      <a href="#">Social Network <span>12</span></a>
+                    </li>
+                    <li className="menu">
+                      <a href="#">Productivity <span>129</span></a>
+                    </li>
+                    <li className="menu">
+                      <a href="#">Featured</a>
+                    </li>
+                  </ul>
+                  <a href="" className="submit">Submit new<img src="/plus.svg"/></a>
+                </div>
+              </div>
 
               <div className="products-list-wrap">
                 <div className="product-list">
@@ -101,7 +117,7 @@ class BlogIndex extends React.Component {
   }
 }
 
-export default BlogIndex
+export default Release
 
 export const pageQuery = graphql`
   query {
@@ -109,7 +125,6 @@ export const pageQuery = graphql`
       siteMetadata {
         title
       }
-
     }
     allMarkdownRemark(
       sort: { fields: [frontmatter___date], order: DESC }
