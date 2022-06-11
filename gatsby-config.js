@@ -1,7 +1,10 @@
 module.exports = {
   siteMetadata: {
     title: `Maker of this!`,
-    author: `vijay verma`,
+    author: {
+      name: `vijay verma`,
+      summary: `who lives and works in San Francisco building useful things.`,
+    },
     description: `know the makers`,
     siteUrl: `https://vijayverma.co`,
     social: {
@@ -9,6 +12,8 @@ module.exports = {
     },
   },
   plugins: [
+    `gatsby-plugin-sass`,
+    `gatsby-plugin-image`,
     {
       resolve: `gatsby-source-filesystem`,
       options: {
@@ -37,7 +42,7 @@ module.exports = {
           {
             resolve: `gatsby-remark-images`,
             options: {
-              maxWidth: 590,
+              maxWidth: 630,
             },
           },
           {
@@ -54,13 +59,65 @@ module.exports = {
     },
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
+    // {
+    //   resolve: `gatsby-plugin-google-analytics`,
+    //   options: {
+    //     trackingId: `ADD YOUR TRACKING ID HERE`,
+    //   },
+    // },
     {
-      resolve: `gatsby-plugin-google-analytics`,
+      resolve: `gatsby-plugin-feed`,
       options: {
-        trackingId: `UA-154207382-1`,
+        query: `
+          {
+            site {
+              siteMetadata {
+                title
+                description
+                siteUrl
+                site_url: siteUrl
+              }
+            }
+          }
+        `,
+        feeds: [
+          {
+            serialize: ({ query: { site, allMarkdownRemark } }) => {
+              return allMarkdownRemark.nodes.map(node => {
+                return Object.assign({}, node.frontmatter, {
+                  description: node.excerpt,
+                  date: node.frontmatter.date,
+                  url: site.siteMetadata.siteUrl + node.fields.slug,
+                  guid: site.siteMetadata.siteUrl + node.fields.slug,
+                  custom_elements: [{ "content:encoded": node.html }],
+                })
+              })
+            },
+            query: `
+              {
+                allMarkdownRemark(
+                  sort: { order: DESC, fields: [frontmatter___date] },
+                ) {
+                  nodes {
+                    excerpt
+                    html
+                    fields {
+                      slug
+                    }
+                    frontmatter {
+                      title
+                      date
+                    }
+                  }
+                }
+              }
+            `,
+            output: "/rss.xml",
+            title: "Gatsby Starter Blog RSS Feed",
+          },
+        ],
       },
     },
-    `gatsby-plugin-feed`,
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
@@ -70,13 +127,13 @@ module.exports = {
         background_color: `#ffffff`,
         theme_color: `#663399`,
         display: `minimal-ui`,
-        icon: `content/assets/gatsby-icon.png`,
+        icon: `content/assets/gatsby-icon.png`, // This path is relative to the root of the site.
       },
     },
-    `gatsby-transformer-json`,
-
-    `gatsby-plugin-offline`,
     `gatsby-plugin-react-helmet`,
-    `gatsby-plugin-sass`,
+    // this (optional) plugin enables Progressive Web App + Offline functionality
+    // To learn more, visit: https://gatsby.dev/offline
+    // `gatsby-plugin-offline`,
+    `gatsby-transformer-json`,
   ],
 }
